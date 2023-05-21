@@ -206,7 +206,10 @@ function App() {
                           }}
                         >
                           <FoodCard
-                            src={"http://localhost:3000/images/" + val.image}
+                            src={
+                              "https://temi-food-backend.vercel.app/images/" +
+                              val.image
+                            }
                             name={val.name}
                             price={val.price + " บาท"}
                           />
