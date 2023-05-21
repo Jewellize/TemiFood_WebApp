@@ -286,7 +286,10 @@ function App() {
                         key={index}
                       >
                         <img
-                          src={"http://localhost:3000/images/" + item.image}
+                          src={
+                            "https://temi-food-backend.vercel.app/images/" +
+                            item.image
+                          }
                           alt=""
                           className="rounded-lg h-10 w-10 bg-white shadow mr-2"
                         ></img>
