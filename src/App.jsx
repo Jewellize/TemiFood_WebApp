@@ -286,10 +286,11 @@ function App() {
                         key={index}
                       >
                         <img
-                          src={
-                            "https://temi-food-backend.vercel.app/images/" +
-                            item.image
-                          }
+                          src="https://media.licdn.com/dms/image/C4D0BAQGwcApCx7tnMw/company-logo_200_200/0/1519865958321?e=2147483647&v=beta&t=45UmTmPfFltKlHM9Uj-4JNtetfhKqGNu8Jkg6taRsmE"
+                          // {
+                          //   "https://temi-food-backend.vercel.app/images/" +
+                          //   item.image
+                          // }
                           alt=""
                           className="rounded-lg h-10 w-10 bg-white shadow mr-2"
                         ></img>
