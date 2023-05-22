@@ -302,7 +302,6 @@ function App() {
                         <div className="py-1">
                           <div className="w-28 grid grid-cols-3 gap-2 ml-2">
                             <button
-                              // onClick={handleDecrement}
                               onClick={() => {
                                 removeQty(index);
                               }}
@@ -327,7 +326,6 @@ function App() {
                               {item.qty}
                             </div>
                             <button
-                              //x-on:click="addQty(item, 1)"
                               onClick={() => {
                                 addQty(index);
                               }}
