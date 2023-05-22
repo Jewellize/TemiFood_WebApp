@@ -111,7 +111,7 @@ function App() {
               href="#"
               className="flex items-center justify-center h-12 w-12 bg-cyan-50 text-cyan-700 rounded-full"
             >
-              <img className="rounded-2xl" src="image/Temi-logo2.jpg"></img>
+              <img className="rounded-2xl" src={"/image/Temi-logo2.jpg"}></img>
             </a>
             <ul className="flex flex-col space-y-2 mt-12">
               <li>
@@ -207,7 +207,7 @@ function App() {
                         >
                           <FoodCard
                             src={
-                              "https://temi-food-backend.vercel.app/images/" +
+                              "https://temi-food-backend.vercel.app/static/images/" +
                               val.image
                             }
                             name={val.name}
@@ -286,11 +286,10 @@ function App() {
                         key={index}
                       >
                         <img
-                          src="https://media.licdn.com/dms/image/C4D0BAQGwcApCx7tnMw/company-logo_200_200/0/1519865958321?e=2147483647&v=beta&t=45UmTmPfFltKlHM9Uj-4JNtetfhKqGNu8Jkg6taRsmE"
-                          // {
-                          //   "https://temi-food-backend.vercel.app/images/" +
-                          //   item.image
-                          // }
+                          src={
+                            "https://temi-food-backend.vercel.app/images/" +
+                            item.image
+                          }
                           alt=""
                           className="rounded-lg h-10 w-10 bg-white shadow mr-2"
                         ></img>
