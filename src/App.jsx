@@ -29,7 +29,7 @@ function App() {
     formData.append("name", name);
     formData.append("price", price);
     axios
-      .post("https://temifoodproject.000webhostapp.com/uploads", formData)
+      .post("https://temi-food-backend.vercel.app/uploads", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -38,7 +38,7 @@ function App() {
   const fetchProduct = async () => {
     try {
       const res = await axios.get(
-        "https://temifoodproject.000webhostapp.com/alldata"
+        "https://temi-food-backend.vercel.app/alldata"
       );
       setData(res.data);
       setFilterData(res.data);
@@ -207,7 +207,7 @@ function App() {
                         >
                           <FoodCard
                             src={
-                              "https://temifoodproject.000webhostapp.com/images/" +
+                              "https://temi-food-backend.vercel.app/images/" +
                               val.image
                             }
                             name={val.name}
