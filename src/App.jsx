@@ -111,7 +111,7 @@ function App() {
             >
               <img
                 className="rounded-2xl"
-                src="public/image/Temi-logo2.jpg"
+                src="/public/image/Temi-logo2.jpg"
               ></img>
             </a>
             <ul className="flex flex-col space-y-2 mt-12">
