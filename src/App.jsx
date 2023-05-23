@@ -3,6 +3,7 @@ import "./App.css";
 import axios from "axios";
 import FoodCard from "./components/FoodCard";
 import { Input } from "@material-tailwind/react";
+import logo from "./public/Temi-logo2.png";
 
 function App() {
   // get data
@@ -29,7 +30,7 @@ function App() {
     formData.append("name", name);
     formData.append("price", price);
     axios
-      .post("http://localhost:3000/uploads", formData)
+      .post("https://temi-food-backend.vercel.app/uploads", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -37,7 +38,9 @@ function App() {
   const [data, setData] = useState([]);
   const fetchProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/alldata");
+      const res = await axios.get(
+        "https://temi-food-backend.vercel.app/alldata"
+      );
       setData(res.data);
       setFilterData(res.data);
       console.log(res.data);
@@ -109,7 +112,7 @@ function App() {
               href="#"
               className="flex items-center justify-center h-12 w-12 bg-cyan-50 text-cyan-700 rounded-full"
             >
-              <img className="rounded-2xl" src="public/Temi-logo2.jpg"></img>
+              <img className="rounded-2xl" src={logo}></img>
             </a>
             <ul className="flex flex-col space-y-2 mt-12">
               <li>
@@ -204,7 +207,10 @@ function App() {
                           }}
                         >
                           <FoodCard
-                            src={"http://localhost:3000/images/" + val.image}
+                            src={
+                              "https://temi-food-backend.vercel.app/images/" +
+                              val.image
+                            }
                             name={val.name}
                             price={val.price + " บาท"}
                           />
