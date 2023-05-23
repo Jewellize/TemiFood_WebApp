@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import FoodCard from "./components/FoodCard";
 import { Input } from "@material-tailwind/react";
-import logo from "./public/Temi-logo2.png";
+import logo from "./image/Temi-logo2.png";
 
 function App() {
   // get data
