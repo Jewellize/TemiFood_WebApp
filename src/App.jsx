@@ -136,7 +136,7 @@ function App() {
                 </a>
               </li>
               <li>
-                <div
+                {/* <div
                   className="flex items-center"
                   onClick={() => {
                     setAddData(!openAddData);
@@ -158,7 +158,7 @@ function App() {
                       />
                     </svg>
                   </span>
-                </div>
+                </div> */}
               </li>
               <li></li>
             </ul>
