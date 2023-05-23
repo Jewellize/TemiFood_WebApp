@@ -104,7 +104,7 @@ function App() {
   return (
     <>
       {/* no-print-area */}
-      <div className="hide-print bg-blue-gray-50 flex flex-row h-screen antialiased text-blue-gray-800">
+      <div className="hide-print bg-blue-gray-50 flex flex-row h-800 antialiased text-blue-gray-800">
         {/* left-navbar */}
         <div className="flex flex-row w-auto flex-shrink-0 pl-4 pr-2 py-4 ">
           <div className="flex flex-col items-center py-4 flex-shrink-0 w-20 bg-cyan-500 rounded-3xl">
@@ -225,7 +225,7 @@ function App() {
           {/* end-store-menu */}
 
           {/* right-sidebar */}
-          <div className="w-5/12 flex flex-col bg-blue-gray-50 h-4/5 bg-white pr-4 pl-2 py-4">
+          <div className="w-5/12 flex flex-col bg-blue-gray-50 h-800 bg-white pr-4 pl-2 py-4">
             <div className="bg-white rounded-3xl flex flex-col h-full shadow">
               <div className="flex-1 flex flex-col overflow-auto">
                 <div className="h-16 text-center flex justify-center">
