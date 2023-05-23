@@ -103,13 +103,12 @@ function App() {
 
   return (
     <>
-      <div className="h-screen">
-        <div className="h-12 w-screen"></div>
+      <div>
         {/* no-print-area */}
-        <div className="hide-print bg-blue-gray-50 flex flex-row-1 text-blue-gray-800">
+        <div className="hide-print bg-blue-gray-50 flex h-auto flex-row-1 text-blue-gray-800">
           {/* left-navbar */}
-          <div className="flex flex-row w-auto flex-shrink-0 pl-4 pr-2 py-4 ">
-            <div className="flex flex-col items-center py-4 flex-shrink-0 w-20 h-4/5 bg-cyan-500 rounded-3xl">
+          <div className="flex flex-row h-108 w-auto pl-4 pr-2 py-4 ">
+            <div className="flex flex-col items-center py-4 w-20 h-4/5 bg-cyan-500 rounded-3xl">
               <a
                 href="#"
                 className="flex items-center justify-center h-12 w-12 bg-cyan-50 text-cyan-700 rounded-full"
