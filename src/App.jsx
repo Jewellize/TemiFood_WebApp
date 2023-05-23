@@ -225,7 +225,7 @@ function App() {
           {/* end-store-menu */}
 
           {/* right-sidebar */}
-          <div className="w-5/12 flex flex-col bg-blue-gray-50 h-full bg-white pr-4 pl-2 py-4">
+          <div className="w-5/12 flex flex-col bg-blue-gray-50 h-4/5 bg-white pr-4 pl-2 py-4">
             <div className="bg-white rounded-3xl flex flex-col h-full shadow">
               <div className="flex-1 flex flex-col overflow-auto">
                 <div className="h-16 text-center flex justify-center">
