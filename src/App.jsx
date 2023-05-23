@@ -104,7 +104,7 @@ function App() {
   return (
     <>
       <div className="h-screen">
-        <div className="h-24 w-screen"></div>
+        <div className="h-12 w-screen"></div>
         {/* no-print-area */}
         <div className="hide-print bg-blue-gray-50 flex flex-row-1 text-blue-gray-800">
           {/* left-navbar */}
