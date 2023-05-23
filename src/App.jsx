@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import FoodCard from "./components/FoodCard";
 import { Input } from "@material-tailwind/react";
-import logo from "./images/Temi-logo2.jpg";
+import logo from "./images/";
 
 function App() {
   // get data
@@ -112,7 +112,7 @@ function App() {
               href="#"
               className="flex items-center justify-center h-12 w-12 bg-cyan-50 text-cyan-700 rounded-full"
             >
-              <img className="rounded-2xl" src={logo}></img>
+              <img className="rounded-2xl" src={logo + "Temi-logo2.jpg"}></img>
             </a>
             <ul className="flex flex-col space-y-2 mt-12">
               <li>
