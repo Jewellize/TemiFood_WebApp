@@ -109,7 +109,10 @@ function App() {
               href="#"
               className="flex items-center justify-center h-12 w-12 bg-cyan-50 text-cyan-700 rounded-full"
             >
-              <img className="rounded-2xl" src="image/Temi-logo2.jpg"></img>
+              <img
+                className="rounded-2xl"
+                src="public/image/Temi-logo2.jpg"
+              ></img>
             </a>
             <ul className="flex flex-col space-y-2 mt-12">
               <li>
