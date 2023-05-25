@@ -456,9 +456,7 @@ function App() {
                           <th className="py-1 w-1/12 text-center">#</th>
                           <th className="py-1 text-left">Item</th>
                           <th className="py-1 w-2/12 text-center">Quantity</th>
-                          <th className="py-1 w-3/12 text-right">
-                            Sdddubtotal
-                          </th>
+                          <th className="py-1 w-3/12 text-right">Subtotal</th>
                         </tr>
                       </thead>
                       <tbody>
