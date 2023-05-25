@@ -225,7 +225,7 @@ function App() {
                           >
                             <FoodCard
                               src={
-                                "https://temi-food-backend.vercel.app/images/" +
+                                "กฟหกfood-backend.vercel.app/images/" +
                                 val.image
                               }
                               name={val.name}
