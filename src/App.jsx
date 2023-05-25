@@ -4,6 +4,7 @@ import axios from "axios";
 import FoodCard from "./components/FoodCard";
 import { Input } from "@material-tailwind/react";
 import logo from "./images/Temi-logo2.jpg";
+import moment from "moment/moment";
 
 function App() {
   // get data
@@ -14,6 +15,7 @@ function App() {
   const [file, setFile] = useState(null);
   const [name, setName] = useState();
   const [price, setPrice] = useState();
+  const [tableId, setTableId] = useState();
 
   //Date
   const d = new Date();
@@ -22,7 +24,20 @@ function App() {
   let year = d.getFullYear();
   let currentDate = `${day}-${month}-${year}`;
 
-  // console.log(file);
+  console.log({ cart });
+  //upload payment data
+  const handleProceed = () => {
+    axios
+      .post("https://temi-food-backend.vercel.app/products", {
+        data: cart,
+        ordertime: moment().format(),
+        table: tableId,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  //upload image data
   const handleUpload = () => {
     const formData = new FormData();
     formData.append("image", file);
@@ -35,6 +50,7 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  //get data
   const [data, setData] = useState([]);
   const fetchProduct = async () => {
     try {
@@ -355,6 +371,20 @@ function App() {
                     </div>
                   </div>
                 </div>
+                <div className="flex justify-center mb-3 px-2 text-lg font-semibold text-blue-gray-700">
+                  <div className=" flex gap-2">
+                    <p>โต๊ะที่</p>
+                    <div className="flex flex-col w-48 items-end gap-6">
+                      <Input
+                        size="lg"
+                        placeholder="กรอกเลขโต๊ะที่นี่"
+                        onChange={(e) => {
+                          setTableId(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
 
                 {/* payment */}
                 <div className="select-none h-auto w-full text-center pt-3 pb-4 px-4">
@@ -476,7 +506,11 @@ function App() {
                   </button>
                   <button
                     className="bg-cyan-500 text-white text-lg px-4 py-3 rounded-2xl focus:outline-none w-1/3"
-                    x-on:click="printAndProceed()"
+                    onClick={handleProceed}
+                    // () => {
+                    //   setOpenPayment(!openPayment);
+                    // })
+                    // }
                   >
                     PROCEED
                   </button>

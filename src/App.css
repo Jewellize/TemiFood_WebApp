@@ -223,6 +223,8 @@ table td {
   max-height: 70vh;
 }
 
+
+
 @media print {
   .hide-print {
     display: none !important;
