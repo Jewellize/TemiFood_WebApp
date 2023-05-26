@@ -4,7 +4,7 @@ import axios from "axios";
 import FoodCard from "./components/FoodCard";
 import { Input } from "@material-tailwind/react";
 import logo from "./images/Temi-logo2.jpg";
-import moment from "moment";
+import * as dayjs from "dayjs";
 
 function App() {
   // get data
@@ -28,9 +28,9 @@ function App() {
   //upload payment data
   const handleProceed = () => {
     axios
-      .post("https://temi-food-backend.vercel.app/products", {
+      .post("http://localhost:3000/products", {
         data: cart,
-        ordertime: moment().format(),
+        ordertime: dayjs().format(),
         table: tableId,
       })
       .then((res) => console.log(res))
@@ -45,7 +45,7 @@ function App() {
     formData.append("name", name);
     formData.append("price", price);
     axios
-      .post("https://temi-food-backend.vercel.app/uploads", formData)
+      .post("http://localhost:3000/uploads", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -54,9 +54,7 @@ function App() {
   const [data, setData] = useState([]);
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(
-        "https://temi-food-backend.vercel.app/alldata"
-      );
+      const res = await axios.get("http://localhost:3000/alldata");
       setData(res.data);
       setFilterData(res.data);
       console.log(res.data);
@@ -224,10 +222,7 @@ function App() {
                             }}
                           >
                             <FoodCard
-                              src={
-                                "https://temi-food-backend.vercel.app/images/" +
-                                val.image
-                              }
+                              src={"http://localhost:3000/images/" + val.image}
                               name={val.name}
                               price={val.price + " บาท"}
                             />
@@ -304,10 +299,7 @@ function App() {
                           key={index}
                         >
                           <img
-                            src={
-                              "https://temi-food-backend.vercel.app/images/" +
-                              item.image
-                            }
+                            src={"http://localhost:3000/images/" + item.image}
                             alt=""
                             className="rounded-lg h-10 w-10 bg-white shadow mr-2"
                           ></img>
