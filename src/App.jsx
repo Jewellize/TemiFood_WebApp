@@ -19,12 +19,18 @@ function App() {
 
   //Date
   const d = new Date();
+  // d.toLocaleString("th-TH", {
+  //   timeZone: "Asia/Jakarta",
+  // });
+  // console.log(d);
   // let day = d.getDate();
   // let month = d.getMonth() + 1;
   // let year = d.getFullYear();
   // let time = d.getTime();
   // let currentDate = `${day}-${month}-${year}`;
-  let currentDate = d.toISOString();
+  let currentDate = d.toLocaleString("th-TH", {
+    timeZone: "Asia/Jakarta",
+  });
 
   console.log({ cart });
   //upload payment data
