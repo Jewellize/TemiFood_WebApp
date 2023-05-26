@@ -514,10 +514,10 @@ function App() {
                   </button>
                   <button
                     className="bg-cyan-500 text-white text-lg px-4 py-3 rounded-2xl focus:outline-none w-1/3"
-                    onClick={handleProceed}
-                    // onMouseUp={() => {
-                    //   setOpenPayment(!openPayment);
-                    // }}
+                    onClick={() => {
+                      handleProceed();
+                      setOpenPayment(!openPayment);
+                    }}
                   >
                     PROCEED
                   </button>
