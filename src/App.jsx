@@ -4,7 +4,7 @@ import axios from "axios";
 import FoodCard from "./components/FoodCard";
 import { Input } from "@material-tailwind/react";
 import logo from "./images/Temi-logo2.jpg";
-import * as dayjs from "dayjs";
+// import * as dayjs from "dayjs";
 
 function App() {
   // get data
@@ -19,10 +19,12 @@ function App() {
 
   //Date
   const d = new Date();
-  let day = d.getDate();
-  let month = d.getMonth() + 1;
-  let year = d.getFullYear();
-  let currentDate = `${day}-${month}-${year}`;
+  // let day = d.getDate();
+  // let month = d.getMonth() + 1;
+  // let year = d.getFullYear();
+  // let time = d.getTime();
+  // let currentDate = `${day}-${month}-${year}`;
+  let currentDate = d.toISOString();
 
   console.log({ cart });
   //upload payment data
@@ -30,7 +32,7 @@ function App() {
     axios
       .post("https://temi-food-backend.vercel.app/products", {
         data: cart,
-        ordertime: dayjs().format(),
+        ordertime: currentDate,
         table: tableId,
       })
       .then((res) => console.log(res))
