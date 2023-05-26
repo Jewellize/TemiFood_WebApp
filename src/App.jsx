@@ -28,7 +28,7 @@ function App() {
   //upload payment data
   const handleProceed = () => {
     axios
-      .post("http://localhost:3000/products", {
+      .post("https://temi-food-backend.vercel.app/products", {
         data: cart,
         ordertime: dayjs().format(),
         table: tableId,
@@ -45,7 +45,7 @@ function App() {
     formData.append("name", name);
     formData.append("price", price);
     axios
-      .post("http://localhost:3000/uploads", formData)
+      .post("https://temi-food-backend.vercel.app/uploads", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -54,7 +54,9 @@ function App() {
   const [data, setData] = useState([]);
   const fetchProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/alldata");
+      const res = await axios.get(
+        "https://temi-food-backend.vercel.app/alldata"
+      );
       setData(res.data);
       setFilterData(res.data);
       console.log(res.data);
@@ -222,7 +224,10 @@ function App() {
                             }}
                           >
                             <FoodCard
-                              src={"http://localhost:3000/images/" + val.image}
+                              src={
+                                "https://temi-food-backend.vercel.app/images/" +
+                                val.image
+                              }
                               name={val.name}
                               price={val.price + " บาท"}
                             />
@@ -299,7 +304,10 @@ function App() {
                           key={index}
                         >
                           <img
-                            src={"http://localhost:3000/images/" + item.image}
+                            src={
+                              "https://temi-food-backend.vercel.app/images/" +
+                              item.image
+                            }
                             alt=""
                             className="rounded-lg h-10 w-10 bg-white shadow mr-2"
                           ></img>
