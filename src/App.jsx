@@ -381,7 +381,7 @@ function App() {
                 </div>
                 <div className="flex justify-center mb-3 px-2 text-lg font-semibold text-blue-gray-700">
                   <div className=" flex gap-2">
-                    <p>โต๊ะที่</p>
+                    <p>โต๊ะ </p>
                     <div className="flex flex-col w-48 items-end gap-6">
                       <Input
                         size="lg"
