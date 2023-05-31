@@ -41,6 +41,7 @@ function App() {
         ordertime: currentDate,
         table: tableId,
       })
+      .then((res) => console.log(res))
       .then((res) => setCart([]))
       .catch((err) => console.log(err));
   };
