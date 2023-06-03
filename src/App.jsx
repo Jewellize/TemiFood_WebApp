@@ -40,6 +40,7 @@ function App() {
         data: cart,
         ordertime: currentDate,
         table: tableId,
+        total: cart.reduce((acc, o) => acc + parseInt(o.qty) * o.price, 0),
       })
       .then((res) => console.log(res))
       .then((res) => setCart([]))
