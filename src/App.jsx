@@ -16,6 +16,8 @@ function App() {
   const [name, setName] = useState();
   const [price, setPrice] = useState();
   const [tableId, setTableId] = useState();
+  const [loadingTable, setLoadingTable] = useState();
+  const [tableData, setTableData] = useState();
 
   //Date
   const d = new Date();
@@ -39,11 +41,21 @@ function App() {
       .post("https://temi-food-backend.vercel.app/products", {
         data: cart,
         ordertime: currentDate,
-        table: tableId,
+        table: tableData[0].table,
+        tableId: tableData[0].idtables,
         total: cart.reduce((acc, o) => acc + parseInt(o.qty) * o.price, 0),
       })
-      .then((res) => console.log(res))
+      .then((res) => console.log("procreed : ", res))
       .then((res) => setCart([]))
+      .catch((err) => console.log(err));
+  };
+
+  const handleUpdateTable = () => {
+    axios
+      .post(
+        `https://temi-food-backend.vercel.app/updatestatus/${tableData[0].idtables}`
+      )
+      .then((res) => console.log("update table", res))
       .catch((err) => console.log(err));
   };
 
@@ -122,15 +134,31 @@ function App() {
     // console.log({ cartFilter });
   };
 
+  const fetchTable = async () => {
+    try {
+      setLoadingTable(false);
+      await axios
+        .get("https://temi-food-backend.vercel.app/tables")
+        .then((res) => {
+          setTableData(res.data);
+          setLoadingTable(true);
+        });
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   //check data
   useEffect(() => {
+    fetchTable();
     fetchProduct();
   }, []);
+
+  console.log({ tableData });
 
   return (
     <>
       <div>
-        {/* no-print-area */}
         <div className="hide-print bg-blue-gray-50 flex h-screen flex-row-1 text-blue-gray-800">
           {/* left-navbar */}
           <div className="flex flex-row h-108 w-auto pl-4 pr-2 py-4 ">
@@ -381,10 +409,17 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center mb-3 px-2 text-lg font-semibold text-blue-gray-700">
-                  <div className=" flex gap-2">
-                    <p>โต๊ะ </p>
-                    <div className="flex flex-col w-48 items-end gap-6">
+
+                {loadingTable ? (
+                  <div className="flex justify-center mb-3 px-2 text-lg font-semibold text-blue-gray-700">
+                    <div className=" flex gap-2">
+                      {tableData.length === 1 ? (
+                        <>{tableData[0].table}</>
+                      ) : (
+                        <>ไม่มีโต๊ะ</>
+                      )}
+
+                      {/* <div className="flex flex-col w-48 items-end gap-6">
                       <Input
                         size="lg"
                         placeholder="กรอกเลขโต๊ะที่นี่"
@@ -392,9 +427,12 @@ function App() {
                           setTableId(e.target.value);
                         }}
                       />
+                    </div> */}
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <>loading</>
+                )}
 
                 {/* payment */}
                 <div className="select-none h-auto w-full text-center pt-3 pb-4 px-4">
@@ -409,14 +447,26 @@ function App() {
                     </div>
                   </div>
                   <div>
-                    <button
-                      className="text-white rounded-2xl text-lg w-full py-3 bg-cyan-500 hover:bg-cyan-600 "
-                      onClick={() => {
-                        setOpenPayment(!openPayment);
-                      }}
-                    >
-                      SUBMIT
-                    </button>
+                    {tableData && tableData.length === 0 ? (
+                      <button
+                        className="text-white rounded-2xl text-lg w-full py-3 bg-gray-500 "
+                        disabled
+                        onClick={() => {
+                          setOpenPayment(!openPayment);
+                        }}
+                      >
+                        SUBMIT
+                      </button>
+                    ) : (
+                      <button
+                        className="text-white rounded-2xl text-lg w-full py-3 bg-cyan-500 hover:bg-cyan-600"
+                        onClick={() => {
+                          setOpenPayment(!openPayment);
+                        }}
+                      >
+                        SUBMIT
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -518,6 +568,7 @@ function App() {
                     className="bg-cyan-500 text-white text-lg px-4 py-3 rounded-2xl focus:outline-none w-1/3"
                     onClick={() => {
                       handleProceed();
+                      handleUpdateTable();
                       setOpenPayment(!openPayment);
                     }}
                   >
