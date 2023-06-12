@@ -451,7 +451,13 @@ function App() {
                     </div>
                   </div>
                   <div className="text-white rounded-2xl text-lg w-full py-3 bg-cyan-500 hover:bg-cyan-600">
-                    <button onClick={refreshWeb}>reload!</button>
+                    <button
+                      onClick={() => {
+                        refreshWeb();
+                      }}
+                    >
+                      reload!
+                    </button>
                   </div>
                   <div className="py-1"></div>
                   <div>
