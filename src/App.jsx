@@ -60,7 +60,7 @@ function App() {
   };
 
   const refreshWeb = () => {
-    window.location.reload();
+    window.location.reload(false);
   };
 
   //upload image data
