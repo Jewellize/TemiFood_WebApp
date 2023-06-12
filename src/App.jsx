@@ -59,6 +59,10 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const refreshWeb = () => {
+    window.location.reload();
+  };
+
   //upload image data
   const handleUpload = () => {
     const formData = new FormData();
@@ -446,6 +450,10 @@ function App() {
                       บาท
                     </div>
                   </div>
+                  <div className="text-white rounded-2xl text-lg w-full py-3 bg-cyan-500 hover:bg-cyan-600">
+                    <button onClick={refreshWeb}>reload!</button>
+                  </div>
+                  <div className="py-1"></div>
                   <div>
                     {tableData && tableData.length === 0 ? (
                       <button
@@ -570,6 +578,7 @@ function App() {
                       handleProceed();
                       handleUpdateTable();
                       setOpenPayment(!openPayment);
+                      // refreshWeb();
                     }}
                   >
                     PROCEED
