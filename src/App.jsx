@@ -176,7 +176,7 @@ function App() {
               </a>
               <ul className="flex flex-col space-y-2 mt-12">
                 <li>
-                  <a href="#" className="flex items-center">
+                  {/* <a href="#" className="flex items-center">
                     <span className="flex items-center justify-center h-12 w-12 rounded-2xl">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +193,7 @@ function App() {
                         />
                       </svg>
                     </span>
-                  </a>
+                  </a> */}
                 </li>
                 <li>
                   <div
@@ -451,15 +451,7 @@ function App() {
                       บาท
                     </div>
                   </div>
-                  <div className="text-white rounded-2xl text-lg w-full py-3 bg-cyan-500 hover:bg-cyan-600">
-                    <button
-                      onClick={() => {
-                        refreshWeb();
-                      }}
-                    >
-                      reload!
-                    </button>
-                  </div>
+
                   <div className="py-1"></div>
                   <div>
                     {tableData && tableData.length === 0 ? (
