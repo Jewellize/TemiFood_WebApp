@@ -12,6 +12,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [openPayment, setOpenPayment] = useState(false);
   const [openAddData, setAddData] = useState(false);
+  const [openRefresh, setRefresh] = useState(false);
   const [file, setFile] = useState(null);
   const [name, setName] = useState();
   const [price, setPrice] = useState();
@@ -195,29 +196,29 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  {/* <div
-                  className="flex items-center"
-                  onClick={() => {
-                    setAddData(!openAddData);
-                  }}
-                >
-                  <span className="flex items-center justify-center text-cyan-100 hover:bg-cyan-400 h-12 w-12 rounded-2xl">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                      />
-                    </svg>
-                  </span>
-                </div> */}
+                  <div
+                    className="flex items-center"
+                    onClick={() => {
+                      setRefresh(!openRefresh);
+                    }}
+                  >
+                    <span className="flex items-center justify-center text-cyan-100 hover:bg-cyan-400 h-12 w-12 rounded-2xl">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </li>
                 <li></li>
               </ul>
@@ -584,7 +585,7 @@ function App() {
                       handleProceed();
                       handleUpdateTable();
                       setOpenPayment(!openPayment);
-                      // refreshWeb();
+                      setRefresh(!openRefresh);
                     }}
                   >
                     PROCEED
@@ -625,22 +626,7 @@ function App() {
                   <div className="flex justify-center">
                     <div className="w-4/5">
                       <div className="grid grid-cols-1 gap-4">
-                        <div>
-                          <Input
-                            onChange={(e) => {
-                              setName(e.target.value);
-                            }}
-                            placeholder="Name"
-                          ></Input>
-                        </div>
-                        <div>
-                          <Input
-                            onChange={(e) => {
-                              setPrice(e.target.value);
-                            }}
-                            placeholder="Price"
-                          ></Input>
-                        </div>
+                        ed
                         {/* <div>price</div> */}
                         <br></br>
                         <div className="container">
@@ -677,6 +663,48 @@ function App() {
                     onClick={handleUpload}
                   >
                     UPLOAD
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* refreshWeb */}
+            <div
+              className={`fixed w-full h-screen left-0 top-0 z-10 flex flex-wrap justify-center content-center p-24 ${
+                openRefresh || "hidden"
+              }`}
+            >
+              <div
+                className="fixed glass w-full h-screen left-0 top-0 z-0"
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-100"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+              ></div>
+              <div
+                className="w-96 rounded-3xl bg-white shadow-xl overflow-hidden z-10"
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="opacity-0 transform scale-90"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-100"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-90"
+              >
+                <div className="text-left w-full text-sm p-6 overflow-auto">
+                  <div className="text-center">
+                    <h2 className="text-xl font-semibold">Success!</h2>
+                  </div>
+                </div>
+                <div className="p-4 flex justify-center w-full">
+                  <button
+                    className="bg-cyan-500 text-white text-lg px-4 py-3 rounded-2xl focus:outline-none w-1/3"
+                    onClick={() => {
+                      refreshWeb();
+                    }}
+                  >
+                    OK
                   </button>
                 </div>
               </div>
